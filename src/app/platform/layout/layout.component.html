@@ -1,0 +1,91 @@
+
+
+<header class="bg-white shadow-sm  py-4 "> 
+    <div class="max-w-7xl mx-auto px-6">
+        <nav class=" flex  items-center justify-between" aria-label="Global">
+            <div class="flex lg:flex-1">
+              <p-button (click)="visible = true" icon="pi pi-bars" severity="info" />
+            </div>
+      
+            <div class=" flex flex-1 justify-end">
+              <a href="#" class="text-sm/6 font-semibold text-gray-900">Cerrar sesion <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </nav>
+    </div>
+</header>
+
+
+
+
+<router-outlet></router-outlet>
+
+<div class="card flex justify-center">
+    <p-drawer #drawerRef [(visible)]="visible">
+        <ng-template #headless>
+            <div class="flex flex-col h-full">
+                <div class="flex items-center justify-end px-6 pt-4 shrink-0">
+                    <span>
+                        <p-button severity="info" type="button" (click)="closeCallback($event)" icon="pi pi-times" rounded="true" outlined="true" styleClass="h-8 w-8"></p-button>
+                    </span>
+                </div>
+                <div class="overflow-y-auto">
+                    <ul class="list-none p-4 m-0">
+                        <li>
+                            <div
+                                pRipple
+                                pStyleClass="@next"
+                                enterFromClass="hidden"
+                                enterActiveClass="animate-slidedown"
+                                leaveToClass="hidden"
+                                leaveActiveClass="animate-slideup"
+                                class="p-4 flex items-center justify-between text-600 dark:text-200 cursor-pointer p-ripple"
+                            >
+                                <span class="font-medium">Administracion</span>
+                                <i class="pi pi-chevron-down"></i>
+                            </div>
+                            <ul class="list-none p-0 m-0 overflow-hidden">
+                                <li>
+                                    <a routerLink="/platform/dashboard" pRipple class="flex items-center cursor-pointer p-4 rounded-border text-700  hover:bg-surface-100  duration-150 transition-colors p-ripple">
+                                        <i class="pi pi-home mr-2"></i>
+                                        <span class="font-medium">Inicio</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a routerLink="/platform/cursos" pRipple class="flex items-center cursor-pointer p-4 rounded-border text-700  hover:bg-surface-100  duration-150 transition-colors p-ripple">
+                                        <i class="pi pi-folder mr-2"></i>
+                                        <span class="font-medium">Clientes</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a routerLink="/platform/cursos" pRipple class="flex items-center cursor-pointer p-4 rounded-border text-700  hover:bg-surface-100  duration-150 transition-colors p-ripple">
+                                        <i class="pi pi-chart-line mr-2"></i>
+                                        <span class="font-medium">Proyectos</span>
+                                    </a>
+                                </li>
+
+                                
+                                <li>
+                                    <a routerLink="/platform/cursos" pRipple class="flex items-center cursor-pointer p-4 rounded-border text-700  hover:bg-surface-100  duration-150 transition-colors p-ripple">
+                                        <i class="pi pi-bell mr-2"></i>
+                                        <span class="font-medium">Notificaciones</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-auto">
+                    <hr class="mb-4 mx-4 border-t border-0 border-surface" />
+                    <a routerLink="/platform/profile" pRipple class="m-4 flex items-center cursor-pointer p-4 gap-2 rounded-border text-700  hover:bg-surface-100  duration-150 transition-colors p-ripple">
+                        <p-avatar  image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
+                        <span class="font-bold">Amy Elsner</span>
+                    </a>
+                </div>
+            </div>
+        </ng-template>
+    </p-drawer>
+</div>
+
+
