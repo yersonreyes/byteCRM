@@ -45,21 +45,21 @@
                             </div>
                             <ul class="list-none p-0 m-0 overflow-hidden">
                                 <li>
-                                    <a routerLink="/platform/dashboard" pRipple class="flex items-center cursor-pointer p-4 rounded-border text-700  hover:bg-surface-100  duration-150 transition-colors p-ripple">
+                                    <a  (click)="navigateTo($event,'/platform/dashboard')"  pRipple class="flex items-center cursor-pointer p-4 rounded-border text-700  hover:bg-surface-100  duration-150 transition-colors p-ripple">
                                         <i class="pi pi-home mr-2"></i>
                                         <span class="font-medium">Inicio</span>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a routerLink="/platform/cursos" pRipple class="flex items-center cursor-pointer p-4 rounded-border text-700  hover:bg-surface-100  duration-150 transition-colors p-ripple">
+                                    <a (click)="navigateTo($event,'/platform/clients')" pRipple class="flex items-center cursor-pointer p-4 rounded-border text-700  hover:bg-surface-100  duration-150 transition-colors p-ripple">
                                         <i class="pi pi-folder mr-2"></i>
                                         <span class="font-medium">Clientes</span>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a routerLink="/platform/cursos" pRipple class="flex items-center cursor-pointer p-4 rounded-border text-700  hover:bg-surface-100  duration-150 transition-colors p-ripple">
+                                    <a (click)="navigateTo($event,'/platform/proyects')"  pRipple class="flex items-center cursor-pointer p-4 rounded-border text-700  hover:bg-surface-100  duration-150 transition-colors p-ripple">
                                         <i class="pi pi-chart-line mr-2"></i>
                                         <span class="font-medium">Proyectos</span>
                                     </a>
@@ -67,7 +67,7 @@
 
                                 
                                 <li>
-                                    <a routerLink="/platform/cursos" pRipple class="flex items-center cursor-pointer p-4 rounded-border text-700  hover:bg-surface-100  duration-150 transition-colors p-ripple">
+                                    <a routerLink="/platform/notifications" pRipple class="flex items-center cursor-pointer p-4 rounded-border text-700  hover:bg-surface-100  duration-150 transition-colors p-ripple">
                                         <i class="pi pi-bell mr-2"></i>
                                         <span class="font-medium">Notificaciones</span>
                                     </a>
