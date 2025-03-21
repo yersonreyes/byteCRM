@@ -1,3 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss"
 @import "primeicons/primeicons.css"
+
+
+::view-transition-old(root)
+  animation: exit 0.5s ease-in-out forwards
+
+::view-transition-new(root)
+  animation: enter 0.5s ease-in-out forwards
+
+
+@keyframes enter
+  0% 
+    opacity: 0
+  100%
+    opacity: 1
+
+
+@keyframes exit
+  0%
+    opacity: 1
+  100%
+    opacity: 0    

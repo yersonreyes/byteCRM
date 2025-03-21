@@ -1,1 +1,34 @@
-<p>clients works!</p>
+<div class="max-w-7xl mx-auto px-6">
+    <div class="py-4">
+        <h1 class="text-4xl">Clientes</h1>
+    </div>
+
+    <div class="flex justify-end mb-4">
+        <p-button (click)="navigateToCreateClient()" label="Agregar Cliente" severity="info" />
+    </div>
+
+    <div>
+        <p-table [value]="clients" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template #header>
+                <tr>
+                    <th>Nombre Empresa</th>
+                    <th>Email</th>
+                    <th>Industria</th>
+                    <th>Web</th>
+                    <th>Acciones</th>
+                </tr>
+            </ng-template>
+            <ng-template #body let-product>
+                <tr>
+                    <td>{{ product.fullNameOrCompany }}</td>
+                    <td>{{ product.email }}</td>
+                    <td>{{ product.industry }}</td>
+                    <td>{{ product.website }}</td>
+                    <td>
+                        <p-button  icon="pi pi-search" label="Ver" severity="info" />
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
