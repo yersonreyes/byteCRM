@@ -58,4 +58,9 @@ export class ClientsComponent {
   navigateToCreateClient() {
     this.router.navigate(['/platform/clients-new']);
   }
+
+  navigateToView(id: string) {
+    this.router.navigate(['/platform/clients-view', id]);
+  }
+
 }

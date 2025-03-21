@@ -13,10 +13,8 @@ export const PLATFORM_ROUTES: Routes = [
         {path: 'dashboard', component: DashboardComponent},
         {path: 'clients', component: ClientsComponent},
         {path: 'clients-new', component: ClientsNewComponent},
-        {path: 'clients-view', component: ClientsViewComponent},
+        {path: 'clients-view/:id', component: ClientsViewComponent}, // Added :id to the path
         {path: 'proyects' , component: ProyectsComponent },
         {path: 'notifications' , component: NotificationsComponent }
-
     ]},
-
 ]

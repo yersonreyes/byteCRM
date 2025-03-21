@@ -1,1 +1,144 @@
-<p>clients-view works!</p>
+<div  class="max-w-7xl mx-auto px-6">
+    <div class="mt-10">
+        <h1 class="text-3xl font-bold">Cliente</h1>
+    </div>
+
+    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="w-auto mt-5">
+
+        <p-accordion value="0">
+            <p-accordion-panel value="0">
+                <p-accordion-header>Datos generales</p-accordion-header>
+                <p-accordion-content>
+    
+                    <div class="grid grid-cols-2  gap-8 mb-10">
+                        <div class="flex flex-col gap-2">
+                            <label>Nombre de la empresa</label>
+                            <input pInputText id="fullNameOrCompany"  formControlName="fullNameOrCompany" />
+                            <small *ngIf="clientForm.get('fullNameOrCompany')?.invalid && clientForm.get('fullNameOrCompany')?.touched">Enter your username to reset your password.</small>
+                        </div>
+            
+            
+                        <div class="flex flex-col gap-2">
+                            <label for="industry">Industria</label>
+                            <input pInputText formControlName="industry" id="industry"  />
+                            <small *ngIf="clientForm.get('industry')?.invalid && clientForm.get('industry')?.touched">Enter your username to reset your password.</small>
+                        </div>
+            
+                        
+                        <div class="flex flex-col gap-2">
+                            <label for="businessDescription">Descripcion</label>
+                            <input pInputText formControlName="businessDescription" id="businessDescription"  />
+                            <small *ngIf="clientForm.get('businessDescription')?.invalid && clientForm.get('businessDescription')?.touched">Enter your username to reset your password.</small>
+                        </div>
+            
+                        <div class="flex flex-col gap-2">
+                            <label for="address">Direccion</label>
+                            <input pInputText formControlName="address" id="address"  />
+                            <small *ngIf="clientForm.get('address')?.invalid && clientForm.get('address')?.touched">Enter your username to reset your password.</small>
+                        </div>
+            
+                        <div class="flex flex-col gap-2">
+                            <label for="phone">Numero de telefono</label>
+                            <input pInputText formControlName="phone" id="phone"  />
+                            <small *ngIf="clientForm.get('phone')?.invalid && clientForm.get('phone')?.touched">Enter your username to reset your password.</small>
+                        </div>
+            
+                        <div class="flex flex-col gap-2">
+                            <label for="email">Email</label>
+                            <input pInputText formControlName="email" id="email"  />
+                            <small *ngIf="clientForm.get('email')?.invalid && clientForm.get('email')?.touched">Enter your username to reset your password.</small>
+                        </div>
+                    </div>
+            
+                    
+                    <div class="flex  justify-end  gap-2 mt-10 mb-10">
+                        <p-button [disabled]="clientForm.invalid" severity="info"  label="Actualizar datos"  />
+                    </div>
+                </p-accordion-content>
+            </p-accordion-panel>
+        
+            <p-accordion-panel value="1">
+                <p-accordion-header>Redes sociales</p-accordion-header>
+                <p-accordion-content>
+
+                    <div   formGroupName="socialMedia" class="grid grid-cols-2  gap-8  mb-10">
+                        <div class="flex flex-col gap-2">
+                            <label for="website">website</label>
+                            <input pInputText formControlName="website" id="website"  />
+                        </div>
+            
+                        <div class="flex flex-col gap-2">
+                            <label for="facebook">Facebook</label>
+                            <input pInputText id="facebook" formControlName="facebook" />
+                        </div>
+            
+                        <div class="flex flex-col gap-2">
+                            <label for="instagram">Instagram</label>
+                            <input pInputText id="instagram" formControlName="instagram" />
+                        </div>
+            
+                        <div class="flex flex-col gap-2">
+                            <label for="linkedIn">LinkedIn</label>
+                            <input pInputText id="linkedIn" formControlName="linkedIn" />
+                        </div>
+                    </div>
+            
+                    <div class="flex  justify-end  gap-2 mt-10 mb-10">
+                        <p-button [disabled]="clientForm.invalid" severity="info"  label="Actualizar datos"  />
+                    </div>
+                </p-accordion-content>
+            </p-accordion-panel>
+        
+            <p-accordion-panel value="2">
+                <p-accordion-header>Datos de facturacion</p-accordion-header>
+                <p-accordion-content>
+                    <div   formGroupName="facturacion" class="grid grid-cols-2  gap-8  mb-10">
+                        <div class="flex flex-col gap-2">
+                            <label for="fullNameOrCompany">Nombre o razon social</label>
+                            <input pInputText formControlName="fullNameOrCompany" id="fullNameOrCompany"  />
+                        </div>
+            
+            
+                        <div class="flex flex-col gap-2">
+                            <label for="giro">Giro</label>
+                            <input pInputText id="giro" formControlName="giro" />
+                        </div>
+            
+                        <div class="flex flex-col gap-2">
+                            <label for="rut">Rut</label>
+                            <input pInputText id="rut" formControlName="rut" />
+                        </div>
+            
+                        <div class="flex flex-col gap-2">
+                            <label for="address">Direccion</label>
+                            <input pInputText id="address" formControlName="address" />
+                        </div>
+            
+                        <div class="flex flex-col gap-2">
+                            <label for="phone">Numero telefono</label>
+                            <input pInputText id="phone" formControlName="phone" />
+                        </div>
+            
+                        <div class="flex flex-col gap-2">
+                            <label for="email">Email</label>
+                            <input pInputText id="email" formControlName="email" />
+                        </div>
+                    </div>
+            
+                    <div class="flex  justify-end  gap-2 mt-10 mb-10">
+                        <p-button [disabled]="clientForm.invalid" severity="info"  label="Actualizar datos"  />
+                    </div>
+                </p-accordion-content>
+            </p-accordion-panel>
+        </p-accordion>
+
+    </form>
+
+
+    <div class="mt-10 mb-5">
+        <h1 class="text-3xl font-bold">Proyectos</h1>
+    </div>
+
+
+
+</div>
