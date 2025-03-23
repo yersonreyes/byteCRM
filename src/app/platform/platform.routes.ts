@@ -6,6 +6,8 @@ import { ProyectsComponent } from "./proyects/proyects.component";
 import { NotificationsComponent } from "./notifications/notifications.component";
 import { ClientsNewComponent } from "./clients-new/clients-new.component";
 import { ClientsViewComponent } from "./clients-view/clients-view.component";
+import { ProyectsNewComponent } from "./proyects-new/proyects-new.component";
+import { ProyectsViewComponent } from "./proyects-view/proyects-view.component";
 
 
 export const PLATFORM_ROUTES: Routes = [
@@ -15,6 +17,8 @@ export const PLATFORM_ROUTES: Routes = [
         {path: 'clients-new', component: ClientsNewComponent},
         {path: 'clients-view/:id', component: ClientsViewComponent}, // Added :id to the path
         {path: 'proyects' , component: ProyectsComponent },
+        {path: 'proyects-new' , component: ProyectsNewComponent },
+        {path: 'proyects-view/:id' , component: ProyectsViewComponent },
         {path: 'notifications' , component: NotificationsComponent }
     ]},
 ]
