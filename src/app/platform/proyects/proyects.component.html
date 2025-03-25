@@ -28,7 +28,8 @@
                     <td>{{ product.status }}</td>
 
                     <td>
-                        <p-button (click)="navigateToView('1111')"  icon="pi pi-search" label="Ver" severity="info" />
+                        <p-button  [style]="{'margin':'10px'}"(click)="navigateToView('1111')"  icon="pi pi-search"  severity="info" pTooltip="Documentacion Tecnica" tooltipPosition="top" />
+                        <p-button (click)="navigateToFacturacion('1111')"  icon="pi pi-file"  severity="info" pTooltip="Facturacion" tooltipPosition="top" />
                     </td>
                 </tr>
             </ng-template>

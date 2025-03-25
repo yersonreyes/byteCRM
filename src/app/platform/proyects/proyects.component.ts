@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { TooltipModule } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-proyects',
-  imports: [ButtonModule,TableModule],
+  imports: [ButtonModule,TableModule,TooltipModule],
   templateUrl: './proyects.component.html',
   styleUrl: './proyects.component.sass'
 })
@@ -23,7 +24,10 @@ export class ProyectsComponent {
     }
   ]
 
-  constructor( private router: Router,) {}
+  constructor( 
+    private router: Router,
+    
+  ) {}
 
   navigateToCreateClient() {
     this.router.navigate(['/platform/proyects-new']);
@@ -31,6 +35,10 @@ export class ProyectsComponent {
 
   navigateToView(id: string) {
     this.router.navigate(['/platform/proyects-view', id]);
+  }
+
+  navigateToFacturacion(id: string) {
+    this.router.navigate(['/platform/facturacion/', id]);
   }
 
 }

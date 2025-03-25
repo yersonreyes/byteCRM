@@ -1,0 +1,76 @@
+<div class="max-w-7xl mx-auto px-6">
+    <div class="py-4">
+        <h1 class="text-4xl">Facturacion</h1>
+    </div>
+
+
+    <form [formGroup]="facturacionForm" (ngSubmit)="onSubmit()" class="w-auto mt-5">
+        <div>
+    
+            <div class="grid grid-cols-1  gap-8 mb-10">
+                <div class="flex flex-col gap-2">
+                    <label>Descripcion</label>
+                    <input pInputText id="descripcion"  formControlName="descripcion" />
+                    <small *ngIf="facturacionForm.get('descripcion')?.invalid && facturacionForm.get('descripcion')?.touched">Enter your username to reset your password.</small>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="instrucciones">Acuerdos o instrucciones</label>
+                    <textarea rows="5" cols="30" pTextarea formControlName="instrucciones"></textarea>
+                </div>
+
+
+                <div class="flex flex-col gap-2">
+                    <label for="ProvedorDePagos">Provedor de pagos </label>
+                    <textarea rows="5" cols="30" pTextarea formControlName="ProvedorDePagos"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="moneda">Monedas aceptadas</label>
+                    <textarea rows="5" cols="30" pTextarea formControlName="moneda"></textarea>
+                </div>
+
+                
+                <div class="flex flex-col gap-2">
+                    <label for="cicloDeFacturacion">Ciclo de facturacion </label>
+                    <textarea rows="5" cols="30" pTextarea formControlName="cicloDeFacturacion"></textarea>
+                </div>
+
+                
+            </div>
+       </div>
+    </form>
+
+    <div class="flex justify-end mb-4">
+        <p-button (click)="navigateToCreateClient()" label="Agregar nueva factura" severity="info" />
+    </div>
+
+    <div>
+        <p-table [value]="proyects" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template #header>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Rut</th>
+                    <th>fecha</th>
+                    <th>Numero de factura</th>
+                    <th>Monto</th>
+                    <th>Acciones</th>
+                </tr>
+            </ng-template>
+            <ng-template #body let-product>
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.rut }}</td>
+                    <td>{{ product.fecha }}</td>
+                    <td>{{ product.nfactura }}</td>
+                    <td>{{ product.monto }}</td>
+
+                    <td>
+                        <p-button  [style]="{'margin':'10px'}"(click)="navigateToView('1111')"  icon="pi pi-search"  severity="info" pTooltip="Ver datos" tooltipPosition="top" />
+                        <p-button (click)="navigateToFacturacion('1111')"  icon="pi pi-file"  severity="info" pTooltip="ver documentos" tooltipPosition="top" />
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
