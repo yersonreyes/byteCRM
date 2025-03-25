@@ -8,14 +8,26 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { TextareaModule } from 'primeng/textarea';
 import { TooltipModule } from 'primeng/tooltip';
+import { FacturacionAddComponent } from '../dialog/facturacion-add/facturacion-add.component';
 
 @Component({
   selector: 'app-facturacion',
-  imports: [ReactiveFormsModule, CommonModule,ButtonModule,TableModule,TooltipModule,InputTextModule, DividerModule ,TextareaModule],
+  imports: [
+    ReactiveFormsModule, 
+    CommonModule, 
+    ButtonModule, 
+    TableModule, 
+    TooltipModule, 
+    InputTextModule, 
+    DividerModule, 
+    TextareaModule,
+    FacturacionAddComponent
+  ],
   templateUrl: './facturacion.component.html',
   styleUrl: './facturacion.component.sass'
 })
 export class FacturacionComponent {
+  visible: boolean = false;
   facturacionForm: FormGroup;
 
   proyects = [
@@ -80,8 +92,8 @@ export class FacturacionComponent {
     });
   }
 
-  navigateToCreateClient() {
-    this.router.navigate(['/platform/proyects-new']);
+  addFacturecion() {
+    this.visible = true;
   }
 
   navigateToView(id: string) {
@@ -99,5 +111,9 @@ export class FacturacionComponent {
     } else {
       console.log('Form is invalid');
     }
+  }
+
+  onClose() {
+    this.visible = false;
   }
 }

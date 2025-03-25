@@ -42,7 +42,7 @@
     </form>
 
     <div class="flex justify-end mb-4">
-        <p-button (click)="navigateToCreateClient()" label="Agregar nueva factura" severity="info" />
+        <p-button (click)="addFacturecion()" label="Agregar nueva factura" severity="info" />
     </div>
 
     <div>
@@ -74,3 +74,5 @@
         </p-table>
     </div>
 </div>
+
+<app-facturacion-add [visible]="visible" (onClose)="onClose()"></app-facturacion-add>
