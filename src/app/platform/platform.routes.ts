@@ -7,8 +7,8 @@ import { NotificationsComponent } from "./notifications/notifications.component"
 import { ClientsNewComponent } from "./clients-new/clients-new.component";
 import { ClientsViewComponent } from "./clients-view/clients-view.component";
 import { ProyectsNewComponent } from "./proyects-new/proyects-new.component";
-import { ProyectsViewComponent } from "./proyects-view/proyects-view.component";
 import { FacturacionComponent } from "./facturacion/facturacion.component";
+import { DocumentacionTecnicaComponent } from "./documentacion-tecnica/documentacion-tecnica.component";
 
 
 
@@ -20,7 +20,7 @@ export const PLATFORM_ROUTES: Routes = [
         {path: 'clients-view/:id', component: ClientsViewComponent}, // Added :id to the path
         {path: 'proyects' , component: ProyectsComponent },
         {path: 'proyects-new' , component: ProyectsNewComponent },
-        {path: 'proyects-view/:id' , component: ProyectsViewComponent },
+        {path: 'proyects-document-tec/:id' , component: DocumentacionTecnicaComponent },
         {path: 'notifications' , component: NotificationsComponent },
         {path: 'facturacion/:id' , component: FacturacionComponent },
 

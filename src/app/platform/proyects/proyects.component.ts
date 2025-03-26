@@ -33,8 +33,8 @@ export class ProyectsComponent {
     this.router.navigate(['/platform/proyects-new']);
   }
 
-  navigateToView(id: string) {
-    this.router.navigate(['/platform/proyects-view', id]);
+  navigateToDocumentTec(id: string) {
+    this.router.navigate(['/platform/proyects-document-tec/', id]);
   }
 
   navigateToFacturacion(id: string) {
