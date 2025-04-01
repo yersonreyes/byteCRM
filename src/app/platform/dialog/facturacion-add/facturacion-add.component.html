@@ -1,4 +1,4 @@
-<p-dialog header="Agregar Factura" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true" (onHide)="closeDialog()">
+<p-dialog [header]="title" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true" (onHide)="closeDialog()">
     <div>
         <form [formGroup]="facturacionForm" (ngSubmit)="onSubmit()" class="w-auto mt-5">
             <div class="grid grid-cols-2  gap-8  mb-10">
@@ -16,6 +16,21 @@
                 <div class="flex flex-col gap-2">
                     <label for="rut">Rut</label>
                     <input pInputText id="rut" formControlName="rut" />
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="date">fecha</label>
+                    <input pInputText id="date" formControlName="date" />
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="nFactura">Numero de factura</label>
+                    <input pInputText id="nFactura" formControlName="nFactura" />
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="value">Valor</label>
+                    <input pInputText id="value" formControlName="value" />
                 </div>
     
                 <div class="flex flex-col gap-2">
@@ -72,6 +87,10 @@
             <div class="card flex ">
                 <p-fileupload mode="basic" name="demo[]" chooseIcon="pi pi-upload" url="https://www.primefaces.org/cdn/api/upload.php"   maxFileSize="1000000" (onUpload)="onUploadComprobante($event)" [auto]="true" chooseLabel="Cargar documento" />
             </div>
+        </div>
+
+        <div class="flex justify-end mt-5">
+            <p-button severity="info" label="Ingresar Factura" />
         </div>
     </div>
 </p-dialog>

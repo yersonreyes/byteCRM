@@ -42,7 +42,7 @@
     </form>
 
     <div class="flex justify-end mb-4">
-        <p-button (click)="addFacturecion()" label="Agregar nueva factura" severity="info" />
+        <p-button (click)="addFacturecion('Agregar nueva factura')" label="Agregar nueva factura" severity="info" />
     </div>
 
     <div>
@@ -66,8 +66,7 @@
                     <td>{{ product.monto }}</td>
 
                     <td>
-                        <p-button  [style]="{'margin':'10px'}"(click)="navigateToView('1111')"  icon="pi pi-search"  severity="info" pTooltip="Ver datos" tooltipPosition="top" />
-                        <p-button (click)="navigateToFacturacion('1111')"  icon="pi pi-file"  severity="info" pTooltip="ver documentos" tooltipPosition="top" />
+                        <p-button (click)="addFacturecion('Datos de facturacion')"  icon="pi pi-file"  severity="info" pTooltip="ver documentos" tooltipPosition="top" />
                     </td>
                 </tr>
             </ng-template>
@@ -75,4 +74,4 @@
     </div>
 </div>
 
-<app-facturacion-add [visible]="visible" (onClose)="onClose()"></app-facturacion-add>
+<app-facturacion-add [title]="title" [visible]="visible" (onClose)="onClose()"></app-facturacion-add>

@@ -29,7 +29,7 @@ import { FacturacionAddComponent } from '../dialog/facturacion-add/facturacion-a
 export class FacturacionComponent {
   visible: boolean = false;
   facturacionForm: FormGroup;
-
+  title = 'Facturación';
   proyects = [
     {
       id: '1',
@@ -92,7 +92,8 @@ export class FacturacionComponent {
     });
   }
 
-  addFacturecion() {
+  addFacturecion(title: string) {
+    this.title = title;
     this.visible = true;
   }
 

@@ -33,6 +33,8 @@ import { ButtonModule } from 'primeng/button';
 })
 export class FacturacionAddComponent {
   @Input() visible: boolean = false;
+  @Input() title: string = 'Agregar Factura';
+
   @Output() onClose: EventEmitter<void> = new EventEmitter<void>();
 
   facturacionForm: FormGroup;
@@ -48,6 +50,10 @@ export class FacturacionAddComponent {
       phone: ['', [Validators.required]],
       address: ['', [Validators.required]],
       email: ['', [Validators.required]],
+      date: ['', [Validators.required]],
+      nFactura: ['', [Validators.required]],
+      value: ['', [Validators.required]],
+
     });
    }
 
