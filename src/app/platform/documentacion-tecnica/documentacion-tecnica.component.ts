@@ -5,15 +5,96 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { DividerModule } from 'primeng/divider';
 import { TextareaModule } from 'primeng/textarea';
+import { DocTecRepoComponent } from "../dialog/doc-tec-repo/doc-tec-repo.component";
+import { TableModule } from 'primeng/table';
+import { DocTecDespliegueComponent } from "../dialog/doc-tec-despliegue/doc-tec-despliegue.component";
+import { DocTecTecnologiaComponent } from '../dialog/doc-tec-tecnologia/doc-tec-tecnologia.component';
 
 @Component({
   selector: 'app-documentacion-tecnica',
-  imports: [ReactiveFormsModule, CommonModule,ButtonModule,InputTextModule, DividerModule ,TextareaModule],
+  imports: [
+    ReactiveFormsModule,
+    CommonModule,
+    ButtonModule,
+    InputTextModule,
+    DividerModule,
+    TextareaModule,
+    DocTecRepoComponent,
+    TableModule,
+    DocTecDespliegueComponent,
+    DocTecTecnologiaComponent
+],
   templateUrl: './documentacion-tecnica.component.html',
   styleUrl: './documentacion-tecnica.component.sass'
 })
 export class DocumentacionTecnicaComponent {
   clientForm: FormGroup;
+
+  repoVisible: boolean = false;
+  repositorio =  [
+    {
+      nombre: '', // Nombre del repositorio
+      tipo: '', // Tipo de repositorio
+      link: '', // Enlace al repositorio
+      tecnologias: '', // Tecnologías utilizadas
+      branchPrincipal: '', // Branch principal
+      ultimaActualizacion: '', // Última actualización
+      mantenimientoActivo: '', // Mantenimiento activo
+      accesos: '', // Accesos o permisos
+      visibilidad: '', // Repositorio privado o público
+      descripcion: '', // Descripción breve
+      enlaceDocumentacion: '', // Enlace a documentación
+      idProyecto: '', // ID o relación con el proyecto
+      sistemaControlVersiones: '', // Sistema de control de versiones
+      integraciones: '', // Integraciones
+      estadoActual: '' // Estado actual
+    }
+  ] 
+
+  despliegueVisible: boolean = false;
+  despliegue =  [
+    {
+      nombre: '', // Nombre del despliegue
+      fechaHora: '', // Fecha y hora del despliegue
+      ambiente: '', // Ambiente
+      url: '', // URL del despliegue (opcional)
+      version: '', // Versión del software
+      repositorio: '', // Repositorio asociado
+      servidor: '', // Servidor o infraestructura
+      metodo: '', // Método de despliegue
+      responsable: '', // Responsable del despliegue
+      estado: '', // Estado del despliegue
+      changelog: '', // Changelog o descripción de cambios
+      logs: '', // Registros o logs del despliegue (opcional)
+      rollback: '', // Rollback disponible
+      observaciones: '' // Observaciones (opcional)
+    }
+  ]
+
+  tecnologiaVisible: boolean = false;
+  tecnologia = [
+    {
+      nombre: 'Angular', // Nombre de la tecnología
+      versionActual: '17', // Versión actual
+      categoria: 'Frontend', // Categoría
+      descripcion: 'Framework para construir aplicaciones web', // Descripción breve
+      enlaceDocumentacion: 'https://angular.io/docs', // Enlace a la documentación oficial
+      proyectosRelacionados: 'CRM, Dashboard', // Proyectos en los que se usa
+      repositorioRelacionado: 'https://github.com/example/angular-project', // Repositorio relacionado
+      dependencias: 'TypeScript, RxJS', // Dependencias
+      ultimaActualizacion: '2023-10-01', // Última actualización
+      estadoSoporte: 'Activo', // Estado de soporte
+      motivoEleccion: 'Popularidad y soporte de la comunidad', // Motivo de elección
+      alternativas: 'React, Vue.js', // Alternativas similares
+      guiasUsoInterno: 'https://internal-docs.example.com/angular', // Guías de uso interno
+      integraciones: 'REST APIs, Firebase', // Integraciones
+      compatibilidad: 'Cross-browser, Mobile-friendly', // Compatibilidad
+      ejemploUso: '<app-root></app-root-root>', // Ejemplo de uso
+      mantenedor: 'Equipo Frontend', // Mantenedor en el equipo
+      problemasComunes: 'Errores de compilación con TypeScript', // Problemas comunes y soluciones
+      historialCambios: 'Actualización a Angular 17 con mejoras de rendimiento' // Historial de cambios
+    }
+  ];
 
   constructor(private fb: FormBuilder) {
     this.clientForm = this.fb.group({
@@ -22,10 +103,7 @@ export class DocumentacionTecnicaComponent {
       funcionalidades: ['', [Validators.required]],
       documentacion: ['', [Validators.required]],
       entrega: ['', [Validators.required]],
-      //agrega un form array para los repositorios que tendran un nombre y un link
-      repositorios: this.fb.array([]),
-      despliegue: this.fb.array([]),
-      tecnologia: this.fb.array([]),
+
       wireframe: this.fb.array([]),
       database: this.fb.array([]),
       frontend: this.fb.array([]),
@@ -34,106 +112,37 @@ export class DocumentacionTecnicaComponent {
     });
   }
 
-  // Getter para acceder al FormArray de repositorios
-  get repositorios(): FormArray {
-    return this.clientForm.get('repositorios') as FormArray;
-  }
+  //repositorio
 
-
-  removeRepositorio(index: number): void {
-    const repos = this.clientForm.get('repositorios') as FormArray; 
-    if (repos.length > 0) {
-      repos.removeAt(index);
-    }
-  }
   addRepositorio(): void {
-    const repos = this.clientForm.get('repositorios') as FormArray;
-    repos.push(this.fb.group({
-      nombre: ['', [Validators.required]], // Nombre del repositorio
-      tipo: ['', [Validators.required]], // Tipo de repositorio
-      link: ['', [Validators.required, Validators.pattern('https?://.+')]], // Enlace al repositorio
-      tecnologias: ['', [Validators.required]], // Tecnologías utilizadas
-      branchPrincipal: ['', [Validators.required]], // Branch principal
-      ultimaActualizacion: ['', [Validators.required]], // Última actualización
-      mantenimientoActivo: ['', [Validators.required]], // Mantenimiento activo
-      accesos: ['', [Validators.required]], // Accesos o permisos
-      visibilidad: ['', [Validators.required]], // Repositorio privado o público
-      descripcion: ['', [Validators.required]], // Descripción breve
-      enlaceDocumentacion: ['', [Validators.pattern('https?://.+')]], // Enlace a documentación
-      idProyecto: ['', [Validators.required]], // ID o relación con el proyecto
-      sistemaControlVersiones: ['', [Validators.required]], // Sistema de control de versiones
-      integraciones: ['', [Validators.required]], // Integraciones
-      estadoActual: ['', [Validators.required]] // Estado actual
-    }));
+    this.repoVisible = true;
+  }
+
+  closeRepo(): void {
+    this.repoVisible = false;
   }
 
 
-// Getter para acceder al FormArray de despliegue
-  get despliegue(): FormArray {
-    return this.clientForm.get('despliegue') as FormArray;
-  }
+  //despliegue
 
-  removeDespliegue(index: number): void {
-    const despl = this.clientForm.get('despliegue') as FormArray; 
-    if (despl.length > 0) {
-      despl.removeAt(index);
-    }
-  }
   addDespliegue(): void {
-    const despl = this.clientForm.get('despliegue') as FormArray;
-    despl.push(this.fb.group({
-      nombre: ['', [Validators.required]], // Nombre del despliegue
-      fechaHora: ['', [Validators.required]], // Fecha y hora del despliegue
-      ambiente: ['', [Validators.required]], // Ambiente
-      url: ['', [Validators.pattern('https?://.+')]], // URL del despliegue (opcional)
-      version: ['', [Validators.required]], // Versión del software
-      repositorio: ['', [Validators.required]], // Repositorio asociado
-      servidor: ['', [Validators.required]], // Servidor o infraestructura
-      metodo: ['', [Validators.required]], // Método de despliegue
-      responsable: ['', [Validators.required]], // Responsable del despliegue
-      estado: ['', [Validators.required]], // Estado del despliegue
-      changelog: ['', [Validators.required]], // Changelog o descripción de cambios
-      logs: ['', [Validators.pattern('https?://.+')]], // Registros o logs del despliegue (opcional)
-      rollback: ['', [Validators.required]], // Rollback disponible
-      observaciones: [''] // Observaciones (opcional)
-    }));
+    this.despliegueVisible = true;
   }
 
-
-  get tecnologia(): FormArray {
-    return this.clientForm.get('tecnologia') as FormArray;  
-
+  closeDespliegue(): void {
+    this.despliegueVisible = false;
   }
-  removeTecnologia(index: number): void {
-    const tech = this.clientForm.get('tecnologia') as FormArray; 
-    if (tech.length > 0) {
-      tech.removeAt(index);
-    }
-  }
+
+  //Tecnologias
+
   addTecnologia(): void {
-    const tech = this.clientForm.get('tecnologia') as FormArray;
-    tech.push(this.fb.group({
-      nombre: ['', [Validators.required]], // Nombre de la tecnología (Ejemplo: Angular, Nest.js, MongoDB, Docker)
-      versionActual: ['', [Validators.required]], // Versión actual (Ejemplo: Angular 17, Node.js 20, PostgreSQL 16)
-      categoria: ['', [Validators.required]], // Categoría (Frontend, Backend, Base de Datos, Infraestructura, DevOps, etc.)
-      descripcion: ['', [Validators.required]], // Descripción breve (Resumen del propósito y uso en el proyecto)
-      enlaceDocumentacion: ['', [Validators.pattern('https?://.+')]], // Enlace a la documentación oficial (Para referencias rápidas)
-      proyectosRelacionados: ['', [Validators.required]], // Proyectos en los que se usa (Relación con los proyectos dentro del CRM)
-      repositorioRelacionado: ['', [Validators.required]], // Repositorio relacionado (Si hay un repositorio específico que la implemente)
-      dependencias: ['', [Validators.required]], // Dependencias (Ejemplo: Nest.js usa TypeScript y Node.js)
-      ultimaActualizacion: ['', [Validators.required]], // Última actualización (Fecha de la última actualización de la tecnología)
-      estadoSoporte: ['', [Validators.required]], // Estado de soporte (Activo, en desuso, reemplazado, deprecated)
-      motivoEleccion: ['', [Validators.required]], // Motivo de elección (Por qué se usa en el proyecto, ventajas frente a otras opciones)
-      alternativas: ['', [Validators.required]], // Alternativas similares (Otras tecnologías que podrían reemplazarla)
-      guiasUsoInterno: ['', [Validators.pattern('https?://.+')]], // Guías de uso interno (Enlace o referencia a cómo se usa en el equipo)
-      integraciones: ['', [Validators.required]], // Integraciones (Con qué otras tecnologías o servicios se conecta)
-      compatibilidad: ['', [Validators.required]], // Compatibilidad (Sistemas operativos, arquitecturas, versiones mínimas requeridas)
-      ejemploUso: [''], // Ejemplo de uso (Snippet de código o explicación breve)
-      mantenedor: [''], // Mantenedor en el equipo (Quién la gestiona en el proyecto)
-      problemasComunes: [''], // Problemas comunes y soluciones (Errores frecuentes y cómo resolverlos)
-      historialCambios: [''] // Historial de cambios en la versión (Si se lleva un control de migraciones)
-    }));
+    this.tecnologiaVisible = true;
   }
+
+  closeTecnologia(): void {
+    this.tecnologiaVisible = false;
+  }
+
 
   get wireframe(): FormArray {
     return this.clientForm.get('wireframe') as FormArray;  

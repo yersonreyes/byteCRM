@@ -4,163 +4,126 @@
         <p class="text-sm text-gray-500"></p>
     </div>
 
-    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="w-auto mt-5">
-
-       <p-divider />
-       <div>
-            <div class="mt-10 mb-5">
-                <h1 class="text-2xl font-bold">Repositorios</h1>
+    <div>
+        <div class="mt-10 mb-5">
+            <h1 class="text-2xl font-bold">Repositorios</h1>
+        </div>
+    
+        <div >
+            <div class="flex justify-end gap-2 mb-10 ">
+                <p-button (click)="addRepositorio()" severity="info"  label="Agregar Repositorio"/>
             </div>
-        
-            <div formArrayName="repositorios">
-                <div *ngFor="let repo of repositorios.controls; let i = index" [formGroupName]="i" class="flex justify-end gap-2 mb-10 border-b-1 pb-5 border-gray-700">
-                    <div class="grid grid-cols-4 gap-8 w-full">
-                        <div class="flex flex-col gap-2">
-                            <label for="nombre">Nombre del repositorio</label>
-                            <input pInputText id="nombre" formControlName="nombre" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="tipo">Área</label>
-                            <input pInputText id="tipo" formControlName="tipo" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="link">Link del repositorio</label>
-                            <input pInputText id="link" formControlName="link" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="tecnologias">Tecnologías utilizadas</label>
-                            <input pInputText id="tecnologias" formControlName="tecnologias" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="branchPrincipal">Branch principal</label>
-                            <input pInputText id="branchPrincipal" formControlName="branchPrincipal" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="ultimaActualizacion">Última actualización</label>
-                            <input pInputText id="ultimaActualizacion" formControlName="ultimaActualizacion" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="mantenimientoActivo">Mantenimiento activo</label>
-                            <input pInputText id="mantenimientoActivo" formControlName="mantenimientoActivo" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="accesos">Accesos o permisos</label>
-                            <input pInputText id="accesos" formControlName="accesos" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="visibilidad">Visibilidad</label>
-                            <input pInputText id="visibilidad" formControlName="visibilidad" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="enlaceDocumentacion">Enlace a documentación</label>
-                            <input pInputText id="enlaceDocumentacion" formControlName="enlaceDocumentacion" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="idProyecto">ID del proyecto</label>
-                            <input pInputText id="idProyecto" formControlName="idProyecto" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="sistemaControlVersiones">Sistema de control de versiones</label>
-                            <input pInputText id="sistemaControlVersiones" formControlName="sistemaControlVersiones" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="integraciones">Integraciones</label>
-                            <input pInputText id="integraciones" formControlName="integraciones" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="estadoActual">Estado actual</label>
-                            <input pInputText id="estadoActual" formControlName="estadoActual" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="descripcion">Descripción breve</label>
-                            <textarea rows="5" cols="30" pTextarea id="descripcion" formControlName="descripcion"></textarea>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-end items-end  ">
-                        <p-button (click)="removeRepositorio(i)"icon="pi pi-trash" severity="info"  label=""/>
-                    </div>
-                </div>
-                <div>
-                    <p-button (click)="addRepositorio()" severity="info"  label="Agregar Repositorio"/>
-                </div>
-            </div>
-       </div>
 
-       <p-divider />
-       <div>
+            <div>
+                <p-table [value]="repositorio" [tableStyle]="{ 'min-width': '50rem' }">
+                    <ng-template #header>
+                        <tr>
+                            <th>Nombre del repositorio</th>
+                            <th>Área</th>
+                            <th>Link del repositorio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template #body let-product>
+                        <tr>
+                            <td>{{ product.nombre }}</td>
+                            <td>{{ product.tipo }}</td>
+                            <td>{{ product.link }}</td>
+                            <td>
+                                <p-button (click)="addRepositorio()"  icon="pi pi-file"  severity="info" pTooltip="ver documentos" tooltipPosition="top" />
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+
+            <app-doc-tec-repo [visible]="repoVisible" (onClose)="closeRepo()"></app-doc-tec-repo>
+    
+        </div>
+    </div>
+
+    <div>
         <div class="mt-10 mb-5">
             <h1 class="text-2xl font-bold">Despliegues</h1>
         </div>
+    
+        <div >
+            <div class="flex justify-end gap-2 mb-10 ">
+                <p-button (click)="addDespliegue()" severity="info"  label="Agregar Desliegue"/>
+            </div>
 
-        <div formArrayName="despliegue">
-            <div *ngFor="let repo of despliegue.controls; let i = index" [formGroupName]="i" class="flex justify-end gap-2 mb-10 border-b-1 pb-5 border-gray-700">
-                <div class="grid grid-cols-4 gap-8 w-full">
-                    <div class="flex flex-col gap-2">
-                        <label for="nombre">Nombre del despliegue</label>
-                        <input pInputText id="nombre" formControlName="nombre" />
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="fechaHora">Fecha y hora del despliegue</label>
-                        <input pInputText id="fechaHora" formControlName="fechaHora" />
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="ambiente">Ambiente</label>
-                        <input pInputText id="ambiente" formControlName="ambiente" />
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="url">URL del despliegue</label>
-                        <input pInputText id="url" formControlName="url" />
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="version">Versión del software</label>
-                        <input pInputText id="version" formControlName="version" />
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="repositorio">Repositorio asociado</label>
-                        <input pInputText id="repositorio" formControlName="repositorio" />
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="servidor">Servidor o infraestructura</label>
-                        <input pInputText id="servidor" formControlName="servidor" />
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="metodo">Método de despliegue</label>
-                        <input pInputText id="metodo" formControlName="metodo" />
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="responsable">Responsable del despliegue</label>
-                        <input pInputText id="responsable" formControlName="responsable" />
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="estado">Estado del despliegue</label>
-                        <input pInputText id="estado" formControlName="estado" />
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="logs">Registros o logs del despliegue</label>
-                        <input pInputText id="logs" formControlName="logs" />
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="rollback">Rollback disponible</label>
-                        <input pInputText id="rollback" formControlName="rollback" />
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="observaciones">Observaciones</label>
-                        <textarea rows="5" cols="30" pTextarea id="observaciones" formControlName="observaciones"></textarea>
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="changelog">Changelog o descripción de cambios</label>
-                        <textarea rows="5" cols="30" pTextarea id="changelog" formControlName="changelog"></textarea>
-                    </div>
-                </div>
-                <div class="flex items-center justify-end items-end  ">
-                    <p-button (click)="removeDespliegue(i)"icon="pi pi-trash" severity="info"  label=""/>
-                </div>
-            </div>
             <div>
-                <p-button (click)="addDespliegue()" severity="info"  label="Agregar instrucciones para despliegue"/>
+                <p-table [value]="despliegue" [tableStyle]="{ 'min-width': '50rem' }">
+                    <ng-template #header>
+                        <tr>
+                            <th>Nombre del despliegue</th>
+                            <th>fechaHora</th>
+                            <th>ambiente</th>
+                            <th>version</th>
+                            <th>url</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template #body let-product>
+                        <tr>
+                            <td>{{ product.nombre }}</td>
+                            <td>{{ product.fechaHora }}</td>
+                            <td>{{ product.ambiente }}</td>
+                            <td>{{ product.version }}</td>
+                            <td>{{ product.url }}</td>
+
+                            <td>
+                                <p-button (click)="addDespliegue()"  icon="pi pi-file"  severity="info" pTooltip="ver documentos" tooltipPosition="top" />
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
             </div>
+            <app-doc-tec-despliegue [visible]="despliegueVisible" (onClose)="closeDespliegue()"></app-doc-tec-despliegue>
         </div>
-       </div>
+    </div>
+
+    <div>
+        <div class="mt-10 mb-5">
+            <h1 class="text-2xl font-bold">Tecnologias</h1>
+        </div>
+    
+        <div >
+            <div class="flex justify-end gap-2 mb-10 ">
+                <p-button (click)="addTecnologia()" severity="info"  label="Agregar Tecnologia"/>
+            </div>
+
+            <div>
+                <p-table [value]="tecnologia" [tableStyle]="{ 'min-width': '50rem' }">
+                    <ng-template #header>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>categoria</th>
+                            <th>versionActual</th>
+                            <th>enlaceDocumentacion</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template #body let-product>
+                        <tr>
+                            <td>{{ product.nombre }}</td>
+                            <td>{{ product.categoria }}</td>
+                            <td>{{ product.versionActual }}</td>
+                            <td>{{ product.enlaceDocumentacion }}</td>
+
+                            <td>
+                                <p-button (click)="addTecnologia()"  icon="pi pi-file"  severity="info" pTooltip="ver documentos" tooltipPosition="top" />
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+            <app-doc-tec-tecnologia [visible]="tecnologiaVisible" (onClose)="closeTecnologia()"></app-doc-tec-tecnologia>
+        </div>
+    </div>
+
+
+  <!-- <form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="w-auto mt-5">
 
        <p-divider />
        <div>
@@ -169,7 +132,7 @@
         </div>
 
         <div formArrayName="tecnologia">
-            <div *ngFor="let repo of tecnologia.controls; let i = index" [formGroupName]="i" class="flex justify-end gap-2 mb-10 border-b-1 pb-5 border-gray-700">
+            <div *ngFor="let repo of tecnologia.controls; let i = index" [formGroupName]="i" class="flex justify-end gap-2 mb-10 ">
                 <div class="grid grid-cols-4 gap-8 w-full">
                     <div class="flex flex-col gap-2">
                         <label for="nombre">Nombre</label>
@@ -266,7 +229,7 @@
         </div>
 
         <div formArrayName="wireframe">
-            <div *ngFor="let repo of wireframe.controls; let i = index" [formGroupName]="i" class="flex justify-end gap-2 mb-10 border-b-1 pb-5 border-gray-700">
+            <div *ngFor="let repo of wireframe.controls; let i = index" [formGroupName]="i" class="flex justify-end gap-2 mb-10 ">
                 <div class="grid grid-cols-4 gap-8 w-full">
                     <div class="flex flex-col gap-2">
                         <label for="nombre">Nombre</label>
@@ -315,7 +278,7 @@
         </div>
 
         <div formArrayName="database">
-            <div *ngFor="let repo of database.controls; let i = index" [formGroupName]="i" class="flex justify-end gap-2 mb-10 border-b-1 pb-5 border-gray-700">
+            <div *ngFor="let repo of database.controls; let i = index" [formGroupName]="i" class="flex justify-end gap-2 mb-10 ">
                 <div class="grid grid-cols-4 gap-8 w-full">
                     <div class="flex flex-col gap-2">
                         <label for="nombre">Nombre</label>
@@ -416,7 +379,7 @@
 
         
         <div formArrayName="frontend">
-            <div *ngFor="let repo of frontend.controls; let i = index" [formGroupName]="i" class="flex justify-end gap-2 mb-10 border-b-1 pb-5 border-gray-700">
+            <div *ngFor="let repo of frontend.controls; let i = index" [formGroupName]="i" class="flex justify-end gap-2 mb-10 ">
                 <div class="grid grid-cols-4 gap-8 w-full">
                     <div class="flex flex-col gap-2">
                         <label for="nombreProyecto">Nombre del Proyecto</label>
@@ -574,7 +537,7 @@
             <h1 class="text-2xl font-bold">Backend</h1>
         </div>
         <div formArrayName="backend">
-            <div *ngFor="let repo of backend.controls; let i = index" [formGroupName]="i" class="flex justify-end gap-2 mb-10 border-b-1 pb-5 border-gray-700">
+            <div *ngFor="let repo of backend.controls; let i = index" [formGroupName]="i" class="flex justify-end gap-2 mb-10 ">
                 <div class="grid grid-cols-4 gap-8 w-full">
                     <div class="flex flex-col gap-2">
                         <label for="nombreProyecto">Nombre del Proyecto</label>
@@ -727,5 +690,5 @@
         <div class="flex flex-col gap-2 mt-10 mb-10">
         <p-button [disabled]="clientForm.invalid" severity="info"  label="Agregar nuevo cliente" [style]="{'width':'100%'}" />
         </div>
-    </form>
+    </form>   -->
 </div>

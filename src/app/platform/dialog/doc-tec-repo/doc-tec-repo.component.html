@@ -1,0 +1,78 @@
+<p-dialog header="Repositorio" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true" (onHide)="closeDialog()">
+    <div>
+        <form [formGroup]="repoForm" (ngSubmit)="onSubmit()" class="w-auto mt-5">
+            <div class="grid grid-cols-2 gap-8 w-full">
+                <div class="flex flex-col gap-2">
+                    <label for="nombre">Nombre del repositorio</label>
+                    <input pInputText id="nombre" formControlName="nombre" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="tipo">Área</label>
+                    <input pInputText id="tipo" formControlName="tipo" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="link">Link del repositorio</label>
+                    <input pInputText id="link" formControlName="link" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="tecnologias">Tecnologías utilizadas</label>
+                    <input pInputText id="tecnologias" formControlName="tecnologias" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="branchPrincipal">Branch principal</label>
+                    <input pInputText id="branchPrincipal" formControlName="branchPrincipal" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="ultimaActualizacion">Última actualización</label>
+                    <input pInputText id="ultimaActualizacion" formControlName="ultimaActualizacion" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="mantenimientoActivo">Mantenimiento activo</label>
+                    <input pInputText id="mantenimientoActivo" formControlName="mantenimientoActivo" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="accesos">Accesos o permisos</label>
+                    <input pInputText id="accesos" formControlName="accesos" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="visibilidad">Visibilidad</label>
+                    <input pInputText id="visibilidad" formControlName="visibilidad" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="enlaceDocumentacion">Enlace a documentación</label>
+                    <input pInputText id="enlaceDocumentacion" formControlName="enlaceDocumentacion" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="idProyecto">ID del proyecto</label>
+                    <input pInputText id="idProyecto" formControlName="idProyecto" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="sistemaControlVersiones">Sistema de control de versiones</label>
+                    <input pInputText id="sistemaControlVersiones" formControlName="sistemaControlVersiones" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="integraciones">Integraciones</label>
+                    <input pInputText id="integraciones" formControlName="integraciones" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="estadoActual">Estado actual</label>
+                    <input pInputText id="estadoActual" formControlName="estadoActual" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="descripcion">Descripción breve</label>
+                    <textarea rows="5" cols="30" pTextarea id="descripcion" formControlName="descripcion"></textarea>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+</p-dialog>
+
+
+
+
+
+
+
+

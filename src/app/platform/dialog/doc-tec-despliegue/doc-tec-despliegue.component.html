@@ -1,0 +1,67 @@
+<p-dialog header="Despliegue" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true" (onHide)="closeDialog()">
+    <div>
+        <form [formGroup]="repoForm" (ngSubmit)="onSubmit()" class="w-auto mt-5">
+            <div class="grid grid-cols-2 gap-8 w-full">
+                <div class="flex flex-col gap-2">
+                    <label for="nombre">Nombre del despliegue</label>
+                    <input pInputText id="nombre" formControlName="nombre" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="fechaHora">Fecha y hora del despliegue</label>
+                    <input pInputText id="fechaHora" formControlName="fechaHora" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="ambiente">Ambiente</label>
+                    <input pInputText id="ambiente" formControlName="ambiente" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="url">URL del despliegue</label>
+                    <input pInputText id="url" formControlName="url" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="version">Versión del software</label>
+                    <input pInputText id="version" formControlName="version" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="repositorio">Repositorio asociado</label>
+                    <input pInputText id="repositorio" formControlName="repositorio" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="servidor">Servidor o infraestructura</label>
+                    <input pInputText id="servidor" formControlName="servidor" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="metodo">Método de despliegue</label>
+                    <input pInputText id="metodo" formControlName="metodo" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="responsable">Responsable del despliegue</label>
+                    <input pInputText id="responsable" formControlName="responsable" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="estado">Estado del despliegue</label>
+                    <input pInputText id="estado" formControlName="estado" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="logs">Registros o logs del despliegue</label>
+                    <input pInputText id="logs" formControlName="logs" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="rollback">Rollback disponible</label>
+                    <input pInputText id="rollback" formControlName="rollback" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="observaciones">Observaciones</label>
+                    <textarea rows="5" cols="30" pTextarea id="observaciones" formControlName="observaciones"></textarea>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="changelog">Changelog o descripción de cambios</label>
+                    <textarea rows="5" cols="30" pTextarea id="changelog" formControlName="changelog"></textarea>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+</p-dialog>
+

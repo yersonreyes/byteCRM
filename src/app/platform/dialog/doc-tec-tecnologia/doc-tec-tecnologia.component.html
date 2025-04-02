@@ -1,0 +1,95 @@
+<p-dialog header="Tecnologia" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true" (onHide)="closeDialog()">
+    <div>
+        <form [formGroup]="repoForm" (ngSubmit)="onSubmit()" class="w-auto mt-5">
+            <div class="grid grid-cols-2 gap-8 w-full">
+                <div class="flex flex-col gap-2">
+                    <label for="nombre">Nombre</label>
+                    <input pInputText id="nombre" formControlName="nombre" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="versionActual">Versión Actual</label>
+                    <input pInputText id="versionActual" formControlName="versionActual" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="categoria">Categoría</label>
+                    <input pInputText id="categoria" formControlName="categoria" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="enlaceDocumentacion">Enlace a Documentación</label>
+                    <input pInputText id="enlaceDocumentacion" formControlName="enlaceDocumentacion" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="proyectosRelacionados">Proyectos Relacionados</label>
+                    <input pInputText id="proyectosRelacionados" formControlName="proyectosRelacionados" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="repositorioRelacionado">Repositorio Relacionado</label>
+                    <input pInputText id="repositorioRelacionado" formControlName="repositorioRelacionado" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="dependencias">Dependencias</label>
+                    <input pInputText id="dependencias" formControlName="dependencias" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="ultimaActualizacion">Última Actualización</label>
+                    <input pInputText id="ultimaActualizacion" formControlName="ultimaActualizacion" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="estadoSoporte">Estado de Soporte</label>
+                    <input pInputText id="estadoSoporte" formControlName="estadoSoporte" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="motivoEleccion">Motivo de Elección</label>
+                    <input pInputText id="motivoEleccion" formControlName="motivoEleccion" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="alternativas">Alternativas</label>
+                    <input pInputText id="alternativas" formControlName="alternativas" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="guiasUsoInterno">Guías de Uso Interno</label>
+                    <input pInputText id="guiasUsoInterno" formControlName="guiasUsoInterno" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="integraciones">Integraciones</label>
+                    <input pInputText id="integraciones" formControlName="integraciones" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="compatibilidad">Compatibilidad</label>
+                    <input pInputText id="compatibilidad" formControlName="compatibilidad" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="mantenedor">Mantenedor</label>
+                    <input pInputText id="mantenedor" formControlName="mantenedor" />
+                </div>
+                <div></div>
+                <div class="flex flex-col gap-2">
+                    <label for="ejemploUso">Ejemplo de Uso</label>
+                    <textarea rows="5" cols="30" pTextarea id="ejemploUso" formControlName="ejemploUso"></textarea>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="problemasComunes">Problemas Comunes</label>
+                    <textarea rows="5" cols="30" pTextarea id="problemasComunes" formControlName="problemasComunes"></textarea>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="historialCambios">Historial de Cambios</label>
+                    <textarea rows="5" cols="30" pTextarea id="historialCambios" formControlName="historialCambios"></textarea>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="descripcion">Descripción</label>
+                    <textarea rows="5" cols="30" pTextarea id="descripcion" formControlName="descripcion"></textarea>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+</p-dialog>
+
+
+
+
+
+
+
+
