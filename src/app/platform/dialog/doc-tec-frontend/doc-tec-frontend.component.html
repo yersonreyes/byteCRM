@@ -1,0 +1,153 @@
+<p-dialog header="Frontend" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true" (onHide)="closeDialog()">
+    <div>
+        <form [formGroup]="repoForm" (ngSubmit)="onSubmit()" class="w-auto mt-5">
+            <div class="grid grid-cols-2 gap-8 w-full">
+                <div class="flex flex-col gap-2">
+                    <label for="nombreProyecto">Nombre del Proyecto</label>
+                    <input pInputText id="nombreProyecto" formControlName="nombreProyecto" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="framework">Framework o tecnología principal</label>
+                    <input pInputText id="framework" formControlName="framework" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="versionActual">Versión actual</label>
+                    <input pInputText id="versionActual" formControlName="versionActual" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="lenguajeProgramacion">Lenguaje de programación</label>
+                    <input pInputText id="lenguajeProgramacion" formControlName="lenguajeProgramacion" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="repositorioFrontend">Repositorio del frontend</label>
+                    <input pInputText id="repositorioFrontend" formControlName="repositorioFrontend" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="branchPrincipal">Branch principal</label>
+                    <input pInputText id="branchPrincipal" formControlName="branchPrincipal" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="arquitectura">Arquitectura</label>
+                    <input pInputText id="arquitectura" formControlName="arquitectura" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="patronesDiseno">Patrones de diseño utilizados</label>
+                    <input pInputText id="patronesDiseno" formControlName="patronesDiseno" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="baseDatos">Base de datos utilizada</label>
+                    <input pInputText id="baseDatos" formControlName="baseDatos" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="serviciosExternos">Servicios externos integrados</label>
+                    <input pInputText id="serviciosExternos" formControlName="serviciosExternos" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="proveedoresAutenticacion">Proveedores de autenticación</label>
+                    <input pInputText id="proveedoresAutenticacion" formControlName="proveedoresAutenticacion" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="apisConsumidas">APIs consumidas</label>
+                    <input pInputText id="apisConsumidas" formControlName="apisConsumidas" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="manejoEstado">Manejo de estado</label>
+                    <input pInputText id="manejoEstado" formControlName="manejoEstado" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="protocolosComunicacion">Protocolos de comunicación</label>
+                    <input pInputText id="protocolosComunicacion" formControlName="protocolosComunicacion" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="urlProduccion">URL del frontend en producción</label>
+                    <input pInputText id="urlProduccion" formControlName="urlProduccion" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="ambientes">Ambientes</label>
+                    <input pInputText id="ambientes" formControlName="ambientes" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="infraestructuraHosting">Infraestructura de hosting</label>
+                    <input pInputText id="infraestructuraHosting" formControlName="infraestructuraHosting" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="contenedoresOrquestacion">Contenedores y orquestación</label>
+                    <input pInputText id="contenedoresOrquestacion" formControlName="contenedoresOrquestacion" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="ciCd">CI/CD</label>
+                    <input pInputText id="ciCd" formControlName="ciCd" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="variablesEntorno">Variables de entorno necesarias</label>
+                    <input pInputText id="variablesEntorno" formControlName="variablesEntorno" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="estrategiasAutenticacion">Estrategias de autenticación y autorización</label>
+                    <input pInputText id="estrategiasAutenticacion" formControlName="estrategiasAutenticacion" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="manejoLogsMonitoreo">Manejo de logs y monitoreo</label>
+                    <input pInputText id="manejoLogsMonitoreo" formControlName="manejoLogsMonitoreo" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="estrategiaBackup">Estrategia de backup y recuperación</label>
+                    <input pInputText id="estrategiaBackup" formControlName="estrategiaBackup" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="limitesTasa">Límites de tasa (Rate limiting)</label>
+                    <input pInputText id="limitesTasa" formControlName="limitesTasa" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="frameworkPruebasUnitarias">Framework de pruebas unitarias</label>
+                    <input pInputText id="frameworkPruebasUnitarias" formControlName="frameworkPruebasUnitarias" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="pruebasComponentes">Pruebas de componentes</label>
+                    <input pInputText id="pruebasComponentes" formControlName="pruebasComponentes" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="pruebasEndToEnd">Pruebas end-to-end (E2E)</label>
+                    <input pInputText id="pruebasEndToEnd" formControlName="pruebasEndToEnd" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="pruebasRendimiento">Pruebas de rendimiento</label>
+                    <input pInputText id="pruebasRendimiento" formControlName="pruebasRendimiento" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="documentacionUiUx">Documentación de UI/UX</label>
+                    <input pInputText id="documentacionUiUx" formControlName="documentacionUiUx" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="convencionesCodigo">Convenciones de código y estilo</label>
+                    <input pInputText id="convencionesCodigo" formControlName="convencionesCodigo" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="accesibilidad">Accesibilidad</label>
+                    <input pInputText id="accesibilidad" formControlName="accesibilidad" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="problemasComunes">Problemas comunes y soluciones</label>
+                    <textarea rows="5" cols="30" pTextarea id="problemasComunes" formControlName="problemasComunes"></textarea>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="planEscalabilidad">Plan de escalabilidad</label>
+                    <textarea rows="5" cols="30" pTextarea id="planEscalabilidad" formControlName="planEscalabilidad"></textarea>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="historialCambios">Historial de cambios y versiones</label>
+                    <textarea rows="5" cols="30" pTextarea id="historialCambios" formControlName="historialCambios"></textarea>
+                </div>
+
+
+            </div>
+        </form>
+
+
+    </div>
+</p-dialog>
+
+
+
+
+

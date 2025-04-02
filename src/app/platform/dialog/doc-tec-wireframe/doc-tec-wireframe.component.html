@@ -1,0 +1,46 @@
+<p-dialog header="Wireframe" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true" (onHide)="closeDialog()">
+    <div>
+        <form [formGroup]="repoForm" (ngSubmit)="onSubmit()" class="w-auto mt-5">
+            <div class="grid grid-cols-2 gap-8 w-full">
+                <div class="flex flex-col gap-2">
+                    <label for="nombre">Nombre</label>
+                    <input pInputText id="nombre" formControlName="nombre" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="enlace">Enlace</label>
+                    <input pInputText id="enlace" formControlName="enlace" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="fechaCreacion">Fecha de creación</label>
+                    <input pInputText id="fechaCreacion" formControlName="fechaCreacion" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="responsable">Responsable</label>
+                    <input pInputText id="responsable" formControlName="responsable" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="estado">Estado</label>
+                    <input pInputText id="estado" formControlName="estado" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="comentarios">Comentarios</label>
+                    <textarea rows="5" cols="30" pTextarea id="comentarios" formControlName="comentarios"></textarea>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="descripcion">Descripción</label>
+                    <textarea rows="5" cols="30" pTextarea id="descripcion" formControlName="descripcion"></textarea>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+</p-dialog>
+
+
+
+
+
+
+
+
