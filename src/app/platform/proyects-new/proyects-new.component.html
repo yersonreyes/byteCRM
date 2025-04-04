@@ -42,34 +42,13 @@
                 </div>
 
 
-                <div class="flex flex-col gap-2">
-                    <label for="descripcionGeneral">Descripción general del proyecto </label>
-                    <textarea rows="5" cols="30" pTextarea formControlName="descripcionGeneral"></textarea>
-                </div>
-
-                <div class="flex flex-col gap-2">
-                    <label for="funcionalidades">Descripción de funcionalidades</label>
-                    <textarea rows="5" cols="30" pTextarea formControlName="funcionalidades"></textarea>
-                </div>
-
-                
-                <div class="flex flex-col gap-2">
-                    <label for="documentacion">Documentación requerida </label>
-                    <textarea rows="5" cols="30" pTextarea formControlName="documentacion"></textarea>
-                </div>
-
-                <div class="flex flex-col gap-2">
-                    <label for="entrega">Requerimientos para la entrega </label>
-                    <textarea rows="5" cols="30" pTextarea formControlName="entrega"></textarea>
-                </div>
-
                 
             </div>
        </div>
        
 
         <div class="flex flex-col gap-2 mt-10 mb-10">
-        <p-button [disabled]="clientForm.invalid" severity="info"  label="Agregar nuevo cliente" [style]="{'width':'100%'}" />
+        <p-button [disabled]="clientForm.invalid" severity="info"  label="Agregar nuevo proyecto" [style]="{'width':'100%'}" />
         </div>
     </form>
 </div>

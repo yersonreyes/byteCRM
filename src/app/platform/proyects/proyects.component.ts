@@ -41,4 +41,16 @@ export class ProyectsComponent {
     this.router.navigate(['/platform/facturacion/', id]);
   }
 
+  navigateToAnalisisFuncional(id: string) {
+    this.router.navigate(['/platform/analisisFuncional/', id]);
+  }
+
+  navigateToTask(id: string) {
+    this.router.navigate(['/platform/tareas/', id]);
+  }
+
+  navigateToValoracion(id: string) {
+    this.router.navigate(['/platform/valoracion/', id]);
+  }
+
 }

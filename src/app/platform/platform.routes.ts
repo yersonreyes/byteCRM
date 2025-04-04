@@ -9,6 +9,9 @@ import { ClientsViewComponent } from "./clients-view/clients-view.component";
 import { ProyectsNewComponent } from "./proyects-new/proyects-new.component";
 import { FacturacionComponent } from "./facturacion/facturacion.component";
 import { DocumentacionTecnicaComponent } from "./documentacion-tecnica/documentacion-tecnica.component";
+import { AnalisisFuncionalComponent } from "./analisis-funcional/analisis-funcional.component";
+import { TareasComponent } from "./tareas/tareas.component";
+import { ValoracionComponent } from "./valoracion/valoracion.component";
 
 
 
@@ -23,6 +26,9 @@ export const PLATFORM_ROUTES: Routes = [
         {path: 'proyects-document-tec/:id' , component: DocumentacionTecnicaComponent },
         {path: 'notifications' , component: NotificationsComponent },
         {path: 'facturacion/:id' , component: FacturacionComponent },
+        {path: 'analisisFuncional/:id' , component: AnalisisFuncionalComponent },
+        {path: 'tareas/:id' , component: TareasComponent },
+        {path: 'valoracion/:id' , component: ValoracionComponent },
 
 
     ]},

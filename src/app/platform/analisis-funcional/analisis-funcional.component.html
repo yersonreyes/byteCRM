@@ -1,0 +1,278 @@
+<div  class="max-w-7xl mx-auto px-6">
+    <div class="mt-10">
+        <h1 class="text-3xl font-bold">Analisis de requerimientos</h1>
+    </div>
+
+    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="w-auto mt-5">
+       <div>
+            <div class="mt-10 mb-5">
+                <h1 class="text-2xl font-bold">Sobre el proyecto</h1>
+            </div>
+    
+            <div class="grid grid-cols-2  gap-8 mb-10">
+                <div class="flex flex-col gap-2">
+                    <label>Nombre del proyecto</label>
+                    <input pInputText id="fullNameOrCompany"  formControlName="fullNameOrCompany" />
+                    <small *ngIf="clientForm.get('fullNameOrCompany')?.invalid && clientForm.get('fullNameOrCompany')?.touched">Enter your username to reset your password.</small>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label>Cliente</label>
+                    <input pInputText id="client"  formControlName="client" />
+                    <small *ngIf="clientForm.get('client')?.invalid && clientForm.get('client')?.touched">Enter your username to reset your password.</small>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label>Inicio</label>
+                    <input pInputText id="startDate"  formControlName="startDate" />
+                    <small *ngIf="clientForm.get('startDate')?.invalid && clientForm.get('startDate')?.touched">Enter your username to reset your password.</small>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label>Entrega</label>
+                    <input pInputText id="endDate"  formControlName="endDate" />
+                    <small *ngIf="clientForm.get('endDate')?.invalid && clientForm.get('endDate')?.touched">Enter your username to reset your password.</small>
+                </div>
+                
+                <div class="flex flex-col gap-2">
+                    <label>Estado</label>
+                    <input pInputText id="estatus"  formControlName="estatus" />
+                    <small *ngIf="clientForm.get('estatus')?.invalid && clientForm.get('estatus')?.touched">Enter your username to reset your password.</small>
+                </div>
+            </div>
+
+            <div class="mt-10 mb-5">
+                <h1 class="text-2xl font-bold">📌 Información General</h1>
+            </div>
+    
+            <div class="grid grid-cols-2  gap-8 mb-10">
+
+                <div class="flex flex-col gap-2">
+                    <label for="descripcionGeneral">Descripción general del proyecto </label>
+                    <small>(Resumen de la aplicación y su propósito)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="descripcionGeneral"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="funcionalidades">Objetivos del sistema</label>
+                    <small> (Metas que debe cumplir la aplicación)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="funcionalidades"></textarea>
+                </div>
+
+                
+                <div class="flex flex-col gap-2">
+                    <label for="alcances">Alcance del proyecto </label>
+                    <small> (Qué funcionalidades incluirá y cuáles no)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="alcances"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="usuariosObjetivos">Usuarios objetivo  </label>
+                    <small> (Ejemplo: Administradores, Clientes, Usuarios estándar)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="usuariosObjetivos"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="casosDeUso">Casos de uso principales</label>
+                    <small> (Lista de las principales acciones que realizan los usuarios)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="casosDeUso"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="requerimientosDelNegocio">Requisitos del negocio </label>
+                    <small>(Condiciones o necesidades del cliente que deben cumplirse)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="requerimientosDelNegocio"></textarea>
+                </div>
+            </div>
+
+
+            <div class="mt-10 mb-5">
+                <h1 class="text-2xl font-bold">🔗 Requisitos Funcionales</h1>
+            </div>
+    
+            <div class="grid grid-cols-2  gap-8 mb-10">
+                <div class="flex flex-col gap-2">
+                    <label for="modulosPrincipales">Módulos principales</label>
+                    <small>(Ejemplo: Autenticación, Gestión de usuarios, Facturación, Reportes)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="modulosPrincipales"></textarea>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="flujosDeNavegacion">Flujo de navegación </label>
+                    <small>(Cómo se mueve el usuario dentro de la aplicación)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="flujosDeNavegacion"></textarea>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="rolesPermisosUsuarios">Roles y permisos de usuario </label>
+                    <small>(Ejemplo: Admin, Editor, Usuario estándar)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="rolesPermisosUsuarios"></textarea>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="interaccionPlataforma">Interacción con otras plataformas </label>
+                    <small> (Ejemplo: APIs externas, Webhooks, Integraciones con CRM, ERP)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="interaccionPlataforma"></textarea>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="tiposEntradaSalida">Tipos de entrada y salida de datos</label>
+                    <small>(Ejemplo: Formularios, Tablas, JSON, CSV, PDF)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="tiposEntradaSalida"></textarea>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="validacionDatos">Validaciones de datos </label>
+                    <small>(Restricciones en los campos, como formatos de correo o rangos de valores)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="validacionDatos"></textarea>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="reglasNegocio">Reglas de negocio</label>
+                    <small>(Lógica interna que rige la aplicación)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="reglasNegocio"></textarea>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="requisitosAccesibilidad">Requisitos de accesibilidad</label>
+                    <small> (Ejemplo: WCAG, compatibilidad con lectores de pantalla)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="requisitosAccesibilidad"></textarea>
+                </div>
+            </div>
+
+            <div class="mt-10 mb-5">
+                <h1 class="text-2xl font-bold">⚙️ Requisitos No Funcionales</h1>
+            </div>
+    
+            <div class="grid grid-cols-2  gap-8 mb-10">
+                <div class="flex flex-col gap-2">
+                    <label for="requerimientoEsperado">Rendimiento esperado</label>
+                    <small> (Ejemplo: Tiempo de respuesta menor a 2 segundos)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="requerimientoEsperado"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="escalabilidad">Escalabilidad</label>
+                    <small>(Capacidad de crecimiento de la aplicación)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="escalabilidad"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="disponibilidad">Disponibilidad </label>
+                    <small>(Capacidad de crecimiento de la aplicación)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="disponibilidad"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="seguridad">Seguridad  </label>
+                    <small>(Ejemplo: Encriptación de datos, autenticación multifactor)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="seguridad"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="compatibilidad">Compatibilidad</label>
+                    <small>(Ejemplo: Navegadores soportados, dispositivos móviles, sistemas operativos)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="compatibilidad"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="mantenimientoSoporte">Mantenimiento y soporte </label>
+                    <small>(Quién se encargará y cómo se manejarán las actualizaciones)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="mantenimientoSoporte"></textarea>
+                </div>
+            </div>
+
+            <div class="mt-10 mb-5">
+                <h1 class="text-2xl font-bold">📜 Modelado y Documentación</h1>
+            </div>
+    
+            <div class="grid grid-cols-2  gap-8 mb-10">
+                <div class="flex flex-col gap-2">
+                    <label for="diagramaCasoUso">Diagrama de casos de uso</label>
+                    <small>(Representación gráfica de cómo interactúan los usuarios con la app)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="diagramaCasoUso"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="diagramaFlujo">Diagrama de flujo</label>
+                    <small>(Flujos de procesos clave)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="diagramaFlujo"></textarea>
+                </div>
+
+                
+                <div class="flex flex-col gap-2">
+                    <label for="diagramaEntidadRelacion">Diagrama de entidad-relación (ERD)</label>
+                    <small>(Si hay una base de datos, cómo están relacionadas las entidades)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="diagramaEntidadRelacion"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="prototipoWireframe">Prototipos o wireframes</label>
+                    <small>(Diseños preliminares de las pantallas)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="prototipoWireframe"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="historiaUsuario">Historias de usuario</label>
+                    <small>(Ejemplo: “Como usuario, quiero registrarme con mi correo para acceder a la plataforma”)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="historiaUsuario"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="criteriosAceptacion">Criterios de aceptación</label>
+                    <small>(Condiciones que debe cumplir cada funcionalidad para considerarse lista)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="criteriosAceptacion"></textarea>
+                </div>
+            </div>
+
+            <div class="mt-10 mb-5">
+                <h1 class="text-2xl font-bold">📊 Métricas y Evaluación</h1>
+            </div>
+    
+            <div class="grid grid-cols-2  gap-8 mb-10">
+                <div class="flex flex-col gap-2">
+                    <label for="kpi">KPIs o métricas de éxito</label>
+                    <small>(Ejemplo: Tasa de conversión, Retención de usuarios)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="kpi"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="casoPruebaFuncionalidad">Casos de prueba funcional</label>
+                    <small>(Pruebas a realizar para validar que cada funcionalidad opera correctamente)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="casoPruebaFuncionalidad"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="fedbackUsuarioUsabilidad">Feedback de usuarios y pruebas de usabilidad</label>
+                    <small> (Cómo se recopilarán opiniones y se iterará en el diseño)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="fedbackUsuarioUsabilidad"></textarea>
+                </div>
+            </div>
+
+
+            <div class="mt-10 mb-5">
+                <h1 class="text-2xl font-bold">📜 Extras Opcionales</h1>
+            </div>
+    
+            <div class="grid grid-cols-2  gap-8 mb-10">
+                <div class="flex flex-col gap-2">
+                    <label for="migracionDatos">Estrategia de migración de datos</label>
+                    <small>(Si se va a migrar información desde otro sistema)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="migracionDatos"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="manejoErrores">Manejo de errores y logs</label>
+                    <small>(Cómo se registrarán los errores del sistema)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="manejoErrores"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="integracionErramientas">Integración con herramientas de monitoreo</label>
+                    <small> (Ejemplo: Google Analytics, Sentry, Datadog)</small>
+                    <textarea rows="5" cols="30" pTextarea formControlName="integracionErramientas"></textarea>
+                </div>
+            </div>
+       </div>
+
+       
+       
+
+        <div class="flex flex-col gap-2 mt-10 mb-10">
+        <p-button [disabled]="clientForm.invalid" severity="info"  label="Agregar nuevo cliente" [style]="{'width':'100%'}" />
+        </div>
+    </form>
+</div>
